@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- HẰNG SỐ VÀ BIẾN TOÀN CỤC ---
-    const correctBirthday = '08032007'; // !!! THAY ĐỔI NGÀY SINH ĐÚNG
+    const correctBirthday = '03082007'; // !!! THAY ĐỔI NGÀY SINH ĐÚNG
     const BLOW_THRESHOLD = 55;
     const MAX_CANDLES = 3;
 
