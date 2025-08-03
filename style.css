@@ -1,0 +1,177 @@
+/* --- CÀI ĐẶT CHUNG --- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Đảm bảo đây là màu nền của bạn */
+    background-color: #fce4ec; 
+    overflow: hidden;
+    height: 100vh;
+}
+.hearts-container {
+    position: fixed; /* Nằm cố định trên màn hình */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Cho phép click xuyên qua */
+    z-index: 9999; /* Luôn nằm trên cùng */
+    overflow: hidden;
+}
+
+.heart {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: -30px; /* Bắt đầu từ bên dưới màn hình */
+    background: #e91e63; /* Màu của trái tim */
+    
+    /* Animation chính */
+    animation: floatHeart linear forwards;
+}
+
+/* Dùng pseudo-elements để vẽ hình trái tim */
+.heart:before,
+.heart:after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background: #e91e63;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -10px;
+    left: 0;
+}
+
+.heart:after {
+    top: 0;
+    left: 10px;
+}
+
+/* Định nghĩa chuyển động bay lên */
+@keyframes floatHeart {
+    to {
+        transform: translateY(-110vh); /* Bay lên hết màn hình */
+        opacity: 0;
+    }
+}
+.screen{position:absolute;top:0;left:0;display:flex;justify-content:center;align-items:center;width:100%;height:100%;opacity:0;pointer-events:none;transition:opacity .8s ease-in-out}
+.screen.active{opacity:1;pointer-events:auto}
+
+/* --- MÀN HÌNH 1: ĐĂNG NHẬP --- */
+.login-box{background-color:rgba(255,255,255,.5);padding:30px 40px;border-radius:25px;box-shadow:0 10px 25px rgba(0,0,0,.1);text-align:center;width:300px}.avatar{width:80px;height:80px;border-radius:50%;border:3px solid #fff;margin-bottom:15px}h2{color:#333;font-size:1.2em;margin:0}.sub-text{color:#666;font-size:.9em;margin-top:5px;margin-bottom:20px}.password-display{background-color:#fff;border:1px solid #f8bbd0;border-radius:15px;height:40px;margin-bottom:25px;display:flex;justify-content:center;align-items:center;font-size:2em;color:#e91e63;letter-spacing:5px;transition:border-color .2s}.password-display.error{border-color:red;animation:shake .5s}.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.key{background-color:rgba(255,255,255,.7);border:none;border-radius:15px;padding:15px;font-size:1.5em;font-weight:700;color:#ad1457;cursor:pointer;transition:background-color .2s,transform .1s}.key:active{transform:scale(.95)}.action-key{background-color:#f8bbd0;color:#fff}
+
+/* --- MÀN HÌNH 2: BÁNH KEM --- */
+
+.cake-wrapper{display:flex;flex-direction:column;align-items:center}
+.css-cake{position:relative;width:250px;height:200px;margin-top:50px}
+.plate{width:270px;height:20px;background-color:#f0f0f0;position:absolute;bottom:0;left:50%;transform:translateX(-50%);border-radius:50%;box-shadow:0 2px 5px rgba(0,0,0,.2)}
+.layer{position:absolute;left:50%;transform:translateX(-50%);width:220px;height:60px;background-color:#562a0b;box-shadow:inset 0 -5px 10px rgba(0,0,0,.3)}
+.layer-bottom{bottom:10px}
+.layer-middle{bottom:70px}
+.layer-top{bottom:130px}
+.icing{position:absolute;left:50%;transform:translateX(-50%);top:-15px;width:220px;height:30px;background-color:#f8bbd0;border-radius:50%}
+.drips{position:absolute;top:5px;width:100%}
+.drip{width:15px;height:25px;background-color:#f8bbd0;border-radius:0 0 50% 50%;position:absolute}
+.drip:nth-child(1){left:10px}
+.drip:nth-child(2){left:50px;height:35px}
+.drip:nth-child(3){left:100px;height:30px}
+.drip:nth-child(4){left:150px}
+.drip:nth-child(5){right:10px;height:35px}
+.candles{position:absolute;top:-45px;left:50%;transform:translateX(-50%);display:flex;gap:40px}
+.flame{width:18px;height:35px;background-color:orange;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;animation:flicker 1.2s infinite alternate;box-shadow:0 0 10px orange,0 0 20px orangered;transition:all .5s ease-out}
+.flame.blown-out{opacity:0;transform:scale(0);animation:none}
+#instruction-text{margin-top:20px;color:#c2185b;font-size:1.5em;font-weight:700;text-align:center}
+.blow-area{margin-top:10px;padding:10px;cursor:pointer;text-align:center}
+.blow-icon{font-size:2em}
+.mic-level{width:200px;height:20px;background-color:white;border-radius:10px;margin:5px auto;overflow:hidden}
+.mic-level-bar{width:0;height:100%;background-color:#e91e63;transition:width .1s}
+.show-wishes-btn{font-family:'Segoe UI',sans-serif;font-weight:700;font-size:1.2em;padding:15px 30px;margin-top:20px;border:none;border-radius:50px;color:#fff;background:linear-gradient(45deg,#e91e63,#ff4081);cursor:pointer;box-shadow:0 5px 15px rgba(233,30,99,.4);transition:all .3s ease}
+.show-wishes-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(233,30,99,.5)}
+.hidden{display:none} /* Dùng để ẩn nút lúc đầu */
+
+/* --- MÀN HÌNH 3: ẢNH BAY VÀ LỜI CHÚC --- */
+#gallery-screen {
+    background-color: #fce4ec; /* Đảm bảo có màu nền */
+}
+
+.flying-photos-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.flying-photo {
+    position: absolute;
+    background: #fff;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    /* Animation chính: bay ngang qua màn hình */
+    animation: flyAcross linear infinite;
+}
+
+.flying-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 5px;
+}
+
+/* Định nghĩa chuyển động bay ngang */
+@keyframes flyAcross {
+    from {
+        transform: translateX(110vw); /* Bắt đầu từ bên phải, ngoài màn hình */
+    }
+    to {
+        transform: translateX(-20vw); /* Kết thúc ở bên trái, ngoài màn hình */
+    }
+}
+
+/* Lớp phủ cho lời chúc */
+.wishes-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.wishes {
+    text-align: center;
+    color: #e91e63;
+    padding: 30px 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px); /* Hiệu ứng kính mờ */
+    -webkit-backdrop-filter: blur(5px);
+    width: 60%;
+    max-width: 800px;
+    
+    /* Hiệu ứng hiện ra */
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.wishes.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.wishes h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.wishes p {
+    font-size: 1.2em;
+}

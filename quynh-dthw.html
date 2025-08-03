@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Món Quà Đặc Biệt Dành Cho quỳnh</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="quynhdthw9.jpg" type="image/x-icon">
+</head>
+<body>
+
+    <!-- MÀN HÌNH 1: ĐĂNG NHẬP -->
+    <div id="login-screen" class="screen active">
+        <!-- (Nội dung màn hình đăng nhập giữ nguyên) -->
+        <div class="login-box">
+            <img src="quynhdthw9.jpg" alt="Avatar" class="avatar">
+            <h2>Nhập ngày sinh của bạn</h2>
+            <p class="sub-text">(dd/mm/yyyy)</p>
+            <div id="password-display" class="password-display"></div>
+            <div class="keypad">
+                <button class="key">1</button><button class="key">2</button><button class="key">3</button>
+                <button class="key">4</button><button class="key">5</button><button class="key">6</button>
+                <button class="key">7</button><button class="key">8</button><button class="key">9</button>
+                <button class="key action-key" id="clear-key">X</button>
+                <button class="key">0</button>
+                <button class="key action-key" id="enter-key">✓</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MÀN HÌNH 2: BÁNH KEM VẼ BẰNG CSS -->
+    <div id="cake-screen" class="screen">
+        <div class="cake-wrapper">
+            <!-- Phần bánh kem vẽ bằng div -->
+            <div class="css-cake">
+                <div class="plate"></div>
+                <div class="layer layer-bottom"></div>
+                <div class="layer layer-middle"></div>
+                <div class="layer layer-top"></div>
+                <div class="icing"></div>
+                <div class="drips">
+                    <div class="drip"></div><div class="drip"></div><div class="drip"></div><div class="drip"></div><div class="drip"></div>
+                </div>
+                <div class="candles">
+                    <div class="flame" id="flame1"></div>
+                    <div class="flame" id="flame2"></div>
+                    <div class="flame" id="flame3"></div>
+                </div>
+            </div>
+
+            <!-- Hướng dẫn và khu vực mic -->
+            <p id="instruction-text">Nhấn vào mic để bắt đầu thổi nến!</p>
+            <div id="blow-area" class="blow-area">
+                <span class="blow-icon">🎤</span>
+                <div class="mic-level"><div id="mic-level-bar" class="mic-level-bar"></div></div>
+            </div>
+
+            <!-- NÚT MỚI ĐỂ XEM LỜI CHÚC (Ẩn lúc đầu) -->
+            <button id="show-wishes-button" class="show-wishes-btn hidden">Xem lời chúc nè!</button>
+        </div>
+    </div>
+
+   <!-- MÀN HÌNH 3: ẢNH BAY VÀ LỜI CHÚC -->
+<div id="gallery-screen" class="screen">
+    <!-- Lớp nền chứa các ảnh bay liên tục -->
+    <div class="flying-photos-bg"></div>
+
+    <!-- Lời chúc hiện ra ở giữa -->
+    <div class="wishes-overlay">
+        <div class="wishes">
+            <h1>Chúc mừng sinh nhật Quỳnh!</h1>
+            <p>Chúc em quỳnh tuổi mới luôn xinh đẹp, rạng rỡ, vui vẻ và gặt hái được thật nhiều thành công trong cuộc sống nhé! ❤️</p>
+        </div>
+    </div>
+</div>
+<!-- Dán vào cuối file HTML, ngay trước thẻ </body> -->
+<div class="hearts-container"></div>
+<audio id="birthdayMusic" loop>
+    <source src="https://birthday-cake-mu.vercel.app/assets/hbd2.mp3" type="audio/mpeg">
+</audio>
+    <script src="script.js"></script>
+</body>
+</html>
